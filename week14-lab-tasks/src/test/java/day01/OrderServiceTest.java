@@ -68,4 +68,10 @@ class OrderServiceTest {
         assertEquals(2,result);
     }
 
+    @Test
+    void getOrdersBetweenDatesTest(){
+        List<Order> result = orderService.getOrdersBetweenDates(LocalDate.of(2021,6,4),LocalDate.of(2021,6,8));
+        assertEquals(3,result.size());
+    }
+
 }

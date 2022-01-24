@@ -26,4 +26,11 @@ public class OrderService {
                 filter(o -> o.getStatus().equals(status)).
                 count();
     }
+
+    public List<Order> getOrdersBetweenDates(LocalDate startDate, LocalDate endDate){
+        return orders.stream().
+                filter(s -> s.getOrderDate().isAfter(startDate)).
+                filter(e -> e.getOrderDate().isBefore(endDate)).
+                collect(Collectors.toList());
+    }
 }
