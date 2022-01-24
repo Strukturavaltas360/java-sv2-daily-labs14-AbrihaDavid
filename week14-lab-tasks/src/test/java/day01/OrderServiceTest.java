@@ -85,4 +85,10 @@ class OrderServiceTest {
         Order result = orderService.getOrderWithMostProduct();
         assertEquals(4,result.getProducts().size());
     }
+
+    @Test
+    void getOrdersWithProductCategoryTest(){
+        List<Order> result = orderService.getOrdersWithProductCategory("Book");
+        assertEquals(2,result.size());
+    }
 }

@@ -49,4 +49,11 @@ public class OrderService {
                 }).get();
 
     }
+
+    public List<Order> getOrdersWithProductCategory(String category){
+        return orders.stream().
+                filter(o->o.getProducts().stream().
+                        anyMatch(p->p.getCategory().equals(category))).
+                collect(Collectors.toList());
+    }
 }
