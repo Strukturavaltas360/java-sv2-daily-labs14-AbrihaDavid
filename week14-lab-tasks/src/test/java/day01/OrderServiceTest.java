@@ -44,8 +44,7 @@ class OrderServiceTest {
 
         Order o5 = new Order("pending", LocalDate.of(2021, 06, 07));
         o5.addProduct(p1);
-        o5.addProduct(p2);
-        o5.addProduct(p5);
+
 
         orderService.saveOrder(o1);
         orderService.saveOrder(o2);
@@ -74,4 +73,9 @@ class OrderServiceTest {
         assertEquals(3,result.size());
     }
 
+    @Test
+    void orderWithLessThanTest(){
+        assertTrue(orderService.orderWithLessThan(2));
+        assertFalse(orderService.orderWithLessThan(1));
+    }
 }

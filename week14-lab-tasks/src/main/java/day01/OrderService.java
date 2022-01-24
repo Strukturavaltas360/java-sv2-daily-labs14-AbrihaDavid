@@ -33,4 +33,10 @@ public class OrderService {
                 filter(e -> e.getOrderDate().isBefore(endDate)).
                 collect(Collectors.toList());
     }
+
+    public boolean orderWithLessThan(int min){
+        return orders.stream().
+                map(Order::getProducts).
+                anyMatch(o -> o.size() < min);
+    }
 }
