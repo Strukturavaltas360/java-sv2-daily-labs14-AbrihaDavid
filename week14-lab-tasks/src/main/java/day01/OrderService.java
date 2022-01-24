@@ -38,4 +38,15 @@ public class OrderService {
         return orders.stream().
                 anyMatch(o -> o.getProducts().size() < min);
     }
+
+    public Order getOrderWithMostProduct(){
+        return orders.stream().
+                max(new Comparator<Order>() {
+                    @Override
+                    public int compare(Order o1, Order o2) {
+                        return o1.getProducts().size() - o2.getProducts().size();
+                    }
+                }).get();
+
+    }
 }

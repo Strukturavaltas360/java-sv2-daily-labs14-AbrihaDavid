@@ -36,6 +36,7 @@ class OrderServiceTest {
         o3.addProduct(p1);
         o3.addProduct(p2);
         o3.addProduct(p5);
+        o3.addProduct(p2);
 
         Order o4 = new Order("on delivery", LocalDate.of(2021, 06, 01));
         o4.addProduct(p3);
@@ -77,5 +78,11 @@ class OrderServiceTest {
     void orderWithLessThanTest(){
         assertTrue(orderService.orderWithLessThan(2));
         assertFalse(orderService.orderWithLessThan(1));
+    }
+
+    @Test
+    void getOrderWithMostProductTest(){
+        Order result = orderService.getOrderWithMostProduct();
+        assertEquals(4,result.getProducts().size());
     }
 }
