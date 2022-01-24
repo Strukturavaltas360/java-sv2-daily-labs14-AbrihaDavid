@@ -36,7 +36,6 @@ public class OrderService {
 
     public boolean orderWithLessThan(int min){
         return orders.stream().
-                map(Order::getProducts).
-                anyMatch(o -> o.size() < min);
+                anyMatch(o -> o.getProducts().size() < min);
     }
 }
